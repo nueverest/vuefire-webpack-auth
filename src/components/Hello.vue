@@ -12,23 +12,23 @@
     <label class="mdl-textfield__label" for="txtPassword">Password</label>
     </div>
     <button id="btnLogin" v-on:click="Login()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
-  Log in
-</button>
-<button id="btnSignUp" v-on:click="SignUp()"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-  Sign Up
-</button>
-<button id="btnLogout" v-on:click="LogOut()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button" style="display:none">
-  Log out
-</button>
+      Log in
+    </button>
+    <button id="btnSignUp" v-on:click="SignUp()"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+      Sign Up
+    </button>
+    <button id="btnLogout" v-on:click="LogOut()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button" style="display:none">
+      Log out
+    </button>
 
-<h4>Login with</h4>
+    <h4>Login with</h4>
 
-<button v-on:click="googleLogin()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
-  <img class="a12n-provider-icon" ng-src="//www.gstatic.com/mobilesdk/160512_mobilesdk/auth_service_google.svg" src="//www.gstatic.com/mobilesdk/160512_mobilesdk/auth_service_google.svg"> Google
-</button>
-<button v-on:click="githubLogin()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
-  <img class="a12n-provider-icon" ng-src="//www.gstatic.com/mobilesdk/160409_mobilesdk/images/auth_service_github.svg" src="//www.gstatic.com/mobilesdk/160409_mobilesdk/images/auth_service_github.svg"> Github
-</button>
+    <button v-on:click="googleLogin()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
+      <img class="a12n-provider-icon" ng-src="//www.gstatic.com/mobilesdk/160512_mobilesdk/auth_service_google.svg" src="//www.gstatic.com/mobilesdk/160512_mobilesdk/auth_service_google.svg"> Google
+    </button>
+    <button v-on:click="githubLogin()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
+      <img class="a12n-provider-icon" ng-src="//www.gstatic.com/mobilesdk/160409_mobilesdk/images/auth_service_github.svg" src="//www.gstatic.com/mobilesdk/160409_mobilesdk/images/auth_service_github.svg"> Github
+    </button>
   </div>
   <div class="mdl-cell mdl-cell--4-col"></div>
 </div>
@@ -82,11 +82,15 @@
             googleLogin: function() {
                 Firebase.auth().signInWithPopup(googleAuthProvider).then(function(result) {
                     console.log(result);
+                    // Returns "send Verification"
+                    // Tell user to check gmail account.
+                    // Give link to gmail.com
                 }).catch(function(error) {});
             },
             githubLogin: function() {
                 Firebase.auth().signInWithPopup(githubAuthProvider).then(function(result) {
                     console.log(result);
+                    // Not seeing anything.
                 }).catch(function(error) {});
             },
             LogOut: function() {
