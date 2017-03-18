@@ -24,10 +24,10 @@
 <h4>Login with</h4>
 
 <button v-on:click="googleLogin()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
-  Google
+  <img class="a12n-provider-icon" ng-src="//www.gstatic.com/mobilesdk/160512_mobilesdk/auth_service_google.svg" src="//www.gstatic.com/mobilesdk/160512_mobilesdk/auth_service_google.svg"> Google
 </button>
 <button v-on:click="githubLogin()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
-  Github
+  <img class="a12n-provider-icon" ng-src="//www.gstatic.com/mobilesdk/160409_mobilesdk/images/auth_service_github.svg" src="//www.gstatic.com/mobilesdk/160409_mobilesdk/images/auth_service_github.svg"> Github
 </button>
   </div>
   <div class="mdl-cell mdl-cell--4-col"></div>
