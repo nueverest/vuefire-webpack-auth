@@ -20,13 +20,19 @@
 <button id="btnLogout" v-on:click="LogOut()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button" style="display:none">
   Log out
 </button>
+
+<h4>Login with</h4>
+
 <button v-on:click="googleLogin()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
-  Google in
+  Google
+</button>
+<button v-on:click="githubLogin()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
+  Github
 </button>
   </div>
   <div class="mdl-cell mdl-cell--4-col"></div>
 </div>
-  
+
   </div>
   </div>
 </template>
@@ -34,14 +40,15 @@
 <script>
     import Firebase from 'firebase'
     const config = {
-        apiKey: '',
-        authDomain: "",
-        databaseURL: "",
-        storageBucket: "",
-        messagingSenderId: ""
+      apiKey: "AIzaSyBZvJmFu8mrlliWmsYxfmO4UAb05wzpDZ8",
+      authDomain: "wordfire-251e1.firebaseapp.com",
+      databaseURL: "https://wordfire-251e1.firebaseio.com",
+      storageBucket: "wordfire-251e1.appspot.com",
+      messagingSenderId: "436757678533"
     }
     const app = Firebase.initializeApp(config);
-    var provider = new Firebase.auth.GoogleAuthProvider();
+    var googleAuthProvider = new Firebase.auth.GoogleAuthProvider();
+    var githubAuthProvider = new Firebase.auth.GithubAuthProvider();
     export default {
         name: 'hello',
         data() {
@@ -73,7 +80,12 @@
 
             },
             googleLogin: function() {
-                Firebase.auth().signInWithPopup(provider).then(function(result) {
+                Firebase.auth().signInWithPopup(googleAuthProvider).then(function(result) {
+                    console.log(result);
+                }).catch(function(error) {});
+            },
+            githubLogin: function() {
+                Firebase.auth().signInWithPopup(githubAuthProvider).then(function(result) {
                     console.log(result);
                 }).catch(function(error) {});
             },
